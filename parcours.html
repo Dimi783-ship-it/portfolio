@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parcours & Missions — Florian Zo'o</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#400009",
+            "surface-container": "#1f1f24",
+            "on-tertiary-fixed-variant": "#004f54",
+            "on-secondary": "#3c2f00",
+            "on-surface-variant": "#e8bcbb",
+            "on-background": "#e3e2e8",
+            "outline": "#ae8787",
+            "tertiary-container": "#00a0aa",
+            "on-surface": "#e3e2e8",
+            "surface-container-highest": "#343439",
+            "primary-fixed-dim": "#ffb3b3",
+            "inverse-surface": "#e3e2e8",
+            "tertiary": "#00dbe9",
+            "tertiary-fixed-dim": "#00dbe9",
+            "tertiary-fixed": "#7df4ff",
+            "outline-variant": "#5e3f3e",
+            "secondary-fixed-dim": "#e9c349",
+            "on-secondary-fixed": "#241a00",
+            "on-primary": "#680014",
+            "surface-bright": "#38393e",
+            "surface-container-low": "#1a1b20",
+            "on-secondary-container": "#342800",
+            "background": "#121317",
+            "primary-fixed": "#ffdad9",
+            "on-primary-container": "#5b0011",
+            "secondary-fixed": "#ffe088",
+            "surface-container-high": "#292a2e",
+            "inverse-on-surface": "#2f3035",
+            "on-tertiary": "#00363a",
+            "on-secondary-fixed-variant": "#574500",
+            "surface-dim": "#121317",
+            "primary-container": "#ff525f",
+            "on-tertiary-fixed": "#002022",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#0d0e12",
+            "error": "#ffb4ab",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "secondary-container": "#af8d11",
+            "surface": "#121317",
+            "on-primary-fixed-variant": "#920021",
+            "on-tertiary-container": "#002f33",
+            "primary": "#ffb3b3",
+            "surface-tint": "#ffb3b3",
+            "inverse-primary": "#bf002e",
+            "surface-variant": "#343439",
+            "secondary": "#e9c349"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "margin": "3rem",
+            "space-2xl": "4rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "display-hero": ["Anton"],
+            "display-hero-mobile": ["Anton"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Anton"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Anton"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Anton"],
+            "headline-sm": ["Anton"],
+            "label-stat": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-hud": ["Space Grotesk"]
+          },
+          fontSize: {
+            "display-hero": ["80px", { lineHeight: "84px", letterSpacing: "0.04em", fontWeight: "400" }],
+            "display-hero-mobile": ["44px", { lineHeight: "48px", letterSpacing: "0.03em", fontWeight: "400" }],
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "headline-lg": ["48px", { lineHeight: "52px", letterSpacing: "0.03em", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "36px", letterSpacing: "0.02em", fontWeight: "400" }],
+            "title-lg": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-lg-mobile": ["32px", { lineHeight: "36px", letterSpacing: "0.02em", fontWeight: "400" }],
+            "headline-sm": ["24px", { lineHeight: "28px", letterSpacing: "0.02em", fontWeight: "400" }],
+            "label-stat": ["14px", { lineHeight: "18px", letterSpacing: "0.06em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "label-hud": ["12px", { lineHeight: "16px", letterSpacing: "0.12em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.45)]">
+    <div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-sm">
+        <img alt="Florian Zo'o Arena Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WF3StenCbmL1g661BGTXIdDxtIctg5nf12_b144pUxBpl9s8-THeMPyWwSnBf-ynsZ83cnFOnI3TYEP5mattTnCpb4vqGKKCEWJfc8cfXH6qA7GDSIhs336WUy8Eo8QKLbozLoyHAb9Zm-4FX5f-jBCGpepjyxcerYKVtnuq240VwVv9ZejsvrJxsQQNJXOvLGBXX4hsZ9C-SjfKpwlPw4HI4sWnLVP2kNqcnILQTnAbtfLk0JslyAxr8"/>
+        <a class="flex flex-col" href="index.html">
+          <span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">Florian Zo'o</span>
+          <span class="font-label-hud text-label-hud text-secondary uppercase">Ynov Campus • Marketing Digital</span>
+        </a>
+      </div>
+      <nav class="hidden xl:flex items-center gap-space-sm">
+        <a class="px-space-sm py-space-xs font-label-stat text-label-stat uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Arène Principale</a>
+        <a class="px-space-sm py-space-xs font-label-stat uppercase transition-colors bg-surface-container-high text-tertiary rounded" href="parcours.html">Parcours &amp; Missions</a>
+        <a class="px-space-sm py-space-xs font-label-stat text-label-stat uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="skills.html">Compétences &amp; Stats</a>
+        <a class="px-space-sm py-space-xs font-label-stat text-label-stat uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="productions.html">Projets &amp; Dossiers</a>
+        <a class="px-space-sm py-space-xs font-label-stat text-label-stat uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="passions.html">Univers &amp; Passions</a>
+        <a class="px-space-sm py-space-xs font-label-stat text-label-stat uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="contact.html">Entrée sur le Ring</a>
+      </nav>
+      <div class="flex items-center gap-space-md">
+        <a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs font-headline-sm text-headline-sm uppercase tracking-wide bg-primary-container text-on-primary hover:bg-secondary hover:text-on-secondary rounded transition-colors shadow-[0_0_20px_rgba(255,82,95,0.4)]" href="contact.html">
+          <span class="material-symbols-outlined mr-space-xs text-[20px]">military_tech</span>Recruter Florian
+        </a>
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <div class="flex flex-col w-full">
+
+      <!-- SECTION 1: HERO HEADER -->
+      <section class="relative w-full overflow-hidden bg-surface-container-lowest px-gutter py-space-xl">
+        <div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-24 w-80 h-80 bg-tertiary/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-space-lg">
+          <div class="flex flex-wrap items-center gap-space-xs font-label-hud text-label-hud uppercase">
+            <span class="px-space-xs py-0.5 rounded bg-surface-container text-tertiary flex items-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[14px]">terminal</span> MISSION LOG 2021-2026
+            </span>
+            <span class="text-outline-variant font-bold">/</span>
+            <span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary flex items-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[14px]">sports_mma</span> CAREER MODE &amp; HEISTS
+            </span>
+            <span class="text-outline-variant font-bold">/</span>
+            <span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary flex items-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[14px]">auto_fix_high</span> EXPÉDITION DIGITALE
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-space-xs">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-primary-container animate-pulse"></span>
+              <span class="font-label-stat text-label-stat uppercase text-secondary tracking-widest">TACTICAL MISSION DOSSIER</span>
+            </div>
+            <h1 class="font-headline-lg text-headline-lg uppercase tracking-tight text-on-surface">
+              PARCOURS PROFESSIONNEL, <span class="text-primary-container drop-shadow-[0_0_16px_rgba(255,82,95,0.4)]">MISSIONS</span> &amp; ARÈNES ACADÉMIQUES
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+              De la rigueur millimétrée de la gestion comptable au pur spectacle scénique du marketing digital : découvrez l'itinéraire tactique d'un profil hybride, armé pour convertir et captiver.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-md">
+            <div class="bg-surface-container-low/90 backdrop-blur-md p-space-md rounded-xl flex items-center gap-space-md shadow-md">
+              <div class="w-14 h-14 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+                <span class="material-symbols-outlined text-[32px]">trophy</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-on-surface tracking-wider">03</span>
+                <span class="font-label-hud text-label-hud uppercase text-on-surface-variant">Grandes Campagnes Menées</span>
+              </div>
+            </div>
+            <div class="bg-surface-container-low/90 backdrop-blur-md p-space-md rounded-xl flex items-center gap-space-md shadow-md">
+              <div class="w-14 h-14 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary shadow-inner">
+                <span class="material-symbols-outlined text-[32px]">verified</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-on-surface tracking-wider">100%</span>
+                <span class="font-label-hud text-label-hud uppercase text-on-surface-variant">Taux d'Accomplissement</span>
+              </div>
+            </div>
+            <div class="bg-surface-container-low/90 backdrop-blur-md p-space-md rounded-xl flex items-center gap-space-md shadow-md">
+              <div class="w-14 h-14 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shadow-inner">
+                <span class="material-symbols-outlined text-[32px]">stars</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-secondary tracking-wider">S-RANK</span>
+                <span class="font-label-hud text-label-hud uppercase text-on-surface-variant">Stratégie &amp; Exécution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: MISSIONS & HEISTS -->
+      <section class="w-full bg-surface px-gutter py-space-2xl relative">
+        <div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <span class="font-label-hud text-label-hud text-primary uppercase tracking-widest flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px]">local_fire_department</span> FIELD OPERATIONS • LIVE DEPLOYMENTS
+              </span>
+              <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">
+                LES GRANDES MISSIONS &amp; <span class="text-tertiary">HEISTS</span>
+              </h2>
+            </div>
+            <div class="font-label-stat text-label-stat text-on-surface-variant uppercase bg-surface-container-high px-space-md py-space-xs rounded-full">
+              STATUS: TOUTES OPÉRATIONS ENCAISSÉES
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-space-xl relative">
+            <div class="hidden lg:block absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-primary-container via-tertiary to-secondary opacity-40"></div>
+
+            <!-- MISSION 01: SOMEILLAN & BONG -->
+            <div class="relative bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl shadow-xl flex flex-col lg:flex-row gap-space-xl items-start group">
+              <div class="hidden lg:flex flex-col items-center justify-center z-10 w-16 h-16 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(255,82,95,0.6)] shrink-0">01</div>
+              <div class="flex-1 flex flex-col gap-space-md w-full">
+                <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                  <div class="flex flex-wrap items-center gap-space-xs">
+                    <span class="px-space-sm py-0.5 rounded bg-primary-container text-on-primary font-label-hud text-label-hud uppercase">MAJOR HEIST 360°</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container text-tertiary font-label-hud text-label-hud uppercase">AVRIL 2026</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container-highest text-secondary font-label-hud text-label-hud uppercase">LEAD MARKETING • FULL STACK</span>
+                  </div>
+                  <span class="font-label-stat text-label-stat text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]">workspace_premium</span> OBJECTIF MAJEUR VALIDÉ - 100%
+                  </span>
+                </div>
+                <div class="flex flex-col gap-space-xs">
+                  <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-wide group-hover:text-primary transition-colors">
+                    Someillan &amp; Bong • Marketing Manager &amp; Stratège Digital
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Conception et exécution de bout en bout de l'identité de marque pour un acteur d'envergure. Déploiement omnicanal combinant design d'expérience utilisateur, architecture de marque et direction artistique cinématographique.
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-sm pt-space-xs">
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+                    <div class="flex items-center gap-2 text-primary">
+                      <span class="material-symbols-outlined text-[20px]">draw</span>
+                      <span class="font-label-hud text-label-hud uppercase">Logo Vectoriel</span>
+                    </div>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Identité graphique scalable et charte de marque intégrale</span>
+                  </div>
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+                    <div class="flex items-center gap-2 text-tertiary">
+                      <span class="material-symbols-outlined text-[20px]">devices</span>
+                      <span class="font-label-hud text-label-hud uppercase">Site Web Réactif</span>
+                    </div>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Développement UI/UX haute performance orienté conversion</span>
+                  </div>
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+                    <div class="flex items-center gap-2 text-secondary">
+                      <span class="material-symbols-outlined text-[20px]">movie</span>
+                      <span class="font-label-hud text-label-hud uppercase">Film Publicitaire 4K</span>
+                    </div>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Scénarisation, montage dynamique &amp; storytelling de marque</span>
+                  </div>
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+                    <div class="flex items-center gap-2 text-on-surface">
+                      <span class="material-symbols-outlined text-[20px]">campaign</span>
+                      <span class="font-label-hud text-label-hud uppercase">Kits Réseaux &amp; Affiches</span>
+                    </div>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Templates multi-formats et affichage print événementiel</span>
+                  </div>
+                </div>
+                <div class="bg-surface-container-high/60 p-space-md rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+                  <div class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary text-[26px]">military_tech</span>
+                    <div>
+                      <span class="font-label-hud text-label-hud uppercase text-secondary block">Livrable &amp; Butin Clé</span>
+                      <span class="font-title-md text-title-md text-on-surface">Écosystème de Marque Unifié &amp; Prêt pour l'Acquisition</span>
+                    </div>
+                  </div>
+                  <span class="px-space-md py-space-xs rounded bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase text-center shrink-0">LIVRAISON PARFAITE</span>
+                </div>
+              </div>
+              <div class="w-full lg:w-72 h-48 lg:h-64 rounded-xl overflow-hidden shrink-0 relative bg-surface-container-highest shadow-md">
+                <img class="w-full h-full object-cover" alt="Studio de production Someillan & Bong" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXasEWfxjOrvi91t3Jql2p7On0Dpbncp2uOtjVXDaE145nZo9B1365nZVo-55v63eEq7nR5l3C4Fo8Y_atUB9flvO9NeifKi3IOAiwv5zvy__2Jj2HZLeYRwQ_cP2cnlmOVuG-Zr2mB_A3XhxGpfNbIwG80HAg6xAqbtW-XtFDJOVQKbB6V6IfmAcHL7h0nr_JiFv7dDBK5Bs9x6JhjcQkiGytC0rZ8fkszY_twLXr-VzoV05OGLjT"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-space-sm">
+                  <span class="font-label-hud text-label-hud uppercase text-primary tracking-widest bg-surface-container-lowest/80 px-2 py-0.5 rounded">MISSION_RECAP_4K.RAW</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- MISSION 02: CONTE-MIRAL -->
+            <div class="relative bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl shadow-xl flex flex-col lg:flex-row gap-space-xl items-start group">
+              <div class="hidden lg:flex flex-col items-center justify-center z-10 w-16 h-16 rounded-full bg-tertiary text-on-tertiary font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(0,219,233,0.5)] shrink-0">02</div>
+              <div class="flex-1 flex flex-col gap-space-md w-full">
+                <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                  <div class="flex flex-wrap items-center gap-space-xs">
+                    <span class="px-space-sm py-0.5 rounded bg-tertiary text-on-tertiary font-label-hud text-label-hud uppercase">RÉGULARITÉ &amp; RIGUEUR TACTIQUE</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container text-tertiary font-label-hud text-label-hud uppercase">NOVEMBRE 2023</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container-highest text-on-surface font-label-hud text-label-hud uppercase">ASSISTANT COMPTABLE</span>
+                  </div>
+                  <span class="font-label-stat text-label-stat text-tertiary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]">database</span> DATA &amp; PRECISION UNLOCKED
+                  </span>
+                </div>
+                <div class="flex flex-col gap-space-xs">
+                  <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-wide group-hover:text-tertiary transition-colors">
+                    Cabinet Conte-Miral • Maîtrise Analytique &amp; Chiffrée
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Immersion intensive au cœur de la mécanique financière. Saisie comptable exhaustive, états de rapprochement bancaire complexes, tableaux d'amortissement et déclarations fiscales de TVA.
+                  </p>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col md:flex-row items-center gap-space-md">
+                  <div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-[24px]">calculate</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="font-title-md text-title-md text-on-surface">L'Impact sur le Marketing : La Culture du ROI</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Cette base comptable transforme Florian en marketeur d'élite : chaque euro investi dans l'acquisition est mesuré avec une exactitude mathématique pour maximiser la rentabilité réelle des campagnes.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant font-label-stat text-label-stat">États de Rapprochement</span>
+                  <span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant font-label-stat text-label-stat">Tableaux d'Amortissement</span>
+                  <span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant font-label-stat text-label-stat">TVA &amp; Fiscalité</span>
+                  <span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant font-label-stat text-label-stat">Exactitude Data</span>
+                </div>
+              </div>
+              <div class="w-full lg:w-72 h-48 lg:h-64 rounded-xl overflow-hidden shrink-0 relative bg-surface-container-highest shadow-md">
+                <img class="w-full h-full object-cover" alt="Bureau comptable analytique" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHt591NmKmytV_UFamCrVldTG1tnqEWm54IpY5ogFTD3QLzJ4sPM4e7WtxJVr9dtgM0aSVaMoHDpOmVsRJkP05beN-FufiDXX8hI84skswZg-7FDifJlmYe0v8VO17CSxQsCnAM0MAw6cZPC-RxlRvch6OvtFowz85PJYFipvEBGI9uPnjWfBXqdwDDkfRn-ynCY0_9z_3ph6VxAhtU05FpRCbn1nZ9dvobdzVTdpZxJ_o0PR67xEu"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-space-sm">
+                  <span class="font-label-hud text-label-hud uppercase text-tertiary tracking-widest bg-surface-container-lowest/80 px-2 py-0.5 rounded">AUDIT_LEDGER_CONFIRMED</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- MISSION 03: RC SÉCURITÉ -->
+            <div class="relative bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl shadow-xl flex flex-col lg:flex-row gap-space-xl items-start group">
+              <div class="hidden lg:flex flex-col items-center justify-center z-10 w-16 h-16 rounded-full bg-secondary text-on-secondary font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(233,195,73,0.5)] shrink-0">03</div>
+              <div class="flex-1 flex flex-col gap-space-md w-full">
+                <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                  <div class="flex flex-wrap items-center gap-space-xs">
+                    <span class="px-space-sm py-0.5 rounded bg-secondary text-on-secondary font-label-hud text-label-hud uppercase">GESTION HUMAINE &amp; PROTOCOLE</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container text-secondary font-label-hud text-label-hud uppercase">MAI - JUIN 2023</span>
+                    <span class="px-space-sm py-0.5 rounded bg-surface-container-highest text-on-surface font-label-hud text-label-hud uppercase">ASSISTANT RESSOURCES HUMAINES</span>
+                  </div>
+                  <span class="font-label-stat text-label-stat text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]">badge</span> PEOPLE &amp; PROTOCOL
+                  </span>
+                </div>
+                <div class="flex flex-col gap-space-xs">
+                  <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-wide group-hover:text-secondary transition-colors">
+                    RC Sécurité Privé • Facteur Humain &amp; Cadre Légal
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Gestion opérationnelle d'un effectif de terrain. Élaboration rigoureuse des bulletins de salaire, formalisation des contrats de travail et gouvernance administrative en environnement exigeant.
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+                    <span class="font-label-hud text-label-hud text-secondary uppercase flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">groups</span> Coordination
+                    </span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Écoute active, médiation et alignement des intérêts collectifs</span>
+                  </div>
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+                    <span class="font-label-hud text-label-hud text-secondary uppercase flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">policy</span> Déontologie
+                    </span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Respect des protocoles stricts et confidentialité absolue</span>
+                  </div>
+                  <div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+                    <span class="font-label-hud text-label-hud text-secondary uppercase flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">receipt_long</span> Rémunération
+                    </span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Maîtrise des mécanismes légaux de la paie et déclarations</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-72 h-48 lg:h-64 rounded-xl overflow-hidden shrink-0 relative bg-surface-container-highest shadow-md">
+                <img class="w-full h-full object-cover" alt="Salle de contrôle sécurité" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCILRzEjY01iKGlTxAQoPRsVryYUVr8rbtbnFEej5VxoberHC7P9FuKp8Ht6WqW0kGWvPu2YbZ5yTU4U4qxISK8VyOdX4sYJ6nR-_-J_F2zgqCfLvEHtIAAuUca-sQn8xQsdjQ-LwmtqjOVMrvfjci1gp_d18JWYIBaELBuBM47IGTbtqfmuFs4KpTJ54g7-8ALJP7QnUiOUO4XrumupBeDyHM3HDVvvxNFfmofUMyhDmgZKN70ongj"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-space-sm">
+                  <span class="font-label-hud text-label-hud uppercase text-secondary tracking-widest bg-surface-container-lowest/80 px-2 py-0.5 rounded">SEC_CORP_ARCHIVE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: FORMATION -->
+      <section class="w-full bg-surface-container-lowest px-gutter py-space-2xl relative">
+        <div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+          <div class="flex flex-col gap-space-xs">
+            <span class="font-label-hud text-label-hud text-tertiary uppercase tracking-widest flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px]">school</span> FORMATION, CERTIFICATIONS &amp; MASTERY
+            </span>
+            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">
+              DOJO ACADÉMIQUE &amp; <span class="text-secondary">ARÈNES DE FORMATION</span>
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+              Une ascension méthodique en 3 actes : la compréhension mercatique initiale, la rigueur de la gestion financière, puis l'explosion créative du marketing digital contemporain.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+            <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-xl shadow-xl flex flex-col justify-between gap-space-lg relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full blur-[80px] pointer-events-none"></div>
+              <div class="flex flex-col gap-space-md relative z-10">
+                <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                  <span class="px-space-sm py-0.5 rounded bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider">CURRENT CHAMPIONSHIP ARENA</span>
+                  <span class="font-label-hud text-label-hud text-secondary uppercase bg-surface-container px-space-sm py-1 rounded">2025 • EN COURS</span>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h3 class="font-headline-md text-headline-md uppercase text-on-surface">Ynov Campus • Toulouse</h3>
+                  <span class="font-title-lg text-title-lg text-tertiary">Bachelor Marketing Digital</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Immersion intensive en mode projet agile. Développement de stratégies omnicanales complètes, hybridation du Growth Hacking et de la production vidéo à fort impact visuel.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+                  <div class="flex items-center gap-space-xs text-on-surface">
+                    <span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+                    <span class="font-body-sm text-body-sm">Growth Marketing &amp; Acquisition</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-on-surface">
+                    <span class="material-symbols-outlined text-tertiary text-[20px]">video_settings</span>
+                    <span class="font-body-sm text-body-sm">Production Vidéo &amp; Motion Design</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[20px]">view_in_ar</span>
+                    <span class="font-body-sm text-body-sm">Design UI/UX &amp; Prototypage Web</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs text-on-surface">
+                    <span class="material-symbols-outlined text-primary text-[20px]">travel_explore</span>
+                    <span class="font-body-sm text-body-sm">SEO / SEA &amp; Analyse d'Audience</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-space-md flex items-center justify-between bg-surface-container/60 p-space-md rounded-lg">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-secondary text-[24px]">grade</span>
+                  <span class="font-label-hud text-label-hud uppercase text-on-surface">Progression Active • Masterclass Practice</span>
+                </div>
+                <span class="font-label-stat text-label-stat text-tertiary uppercase">LIVE COMBAT</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col gap-space-lg">
+              <div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md group hover:bg-surface-container transition-colors">
+                <div class="flex flex-col gap-space-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="px-space-sm py-0.5 rounded bg-tertiary/20 text-tertiary font-label-hud text-label-hud uppercase">DIPLÔME VALIDÉ</span>
+                    <span class="font-label-hud text-label-hud text-on-surface-variant uppercase">2022 - 2024</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface pt-space-xs">Lycée Théodore Ozenne</h4>
+                  <span class="font-title-md text-title-md text-secondary">BTS Comptabilité et Gestion (CG)</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Acquisition des bases mathématiques solides : contrôle financier, balance analytique, calcul des coûts de revient et trésorerie.
+                  </p>
+                </div>
+                <div class="flex items-center gap-2 text-tertiary font-label-hud text-label-hud uppercase">
+                  <span class="material-symbols-outlined text-[16px]">check_circle</span> Rigueur Financière Certifiée
+                </div>
+              </div>
+
+              <div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md group hover:bg-surface-container transition-colors">
+                <div class="flex flex-col gap-space-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="px-space-sm py-0.5 rounded bg-secondary/20 text-secondary font-label-hud text-label-hud uppercase">MENTION OBTENUE</span>
+                    <span class="font-label-hud text-label-hud text-on-surface-variant uppercase">2021 - 2022</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface pt-space-xs">Lycée Théodore Ozenne</h4>
+                  <span class="font-title-md text-title-md text-primary">Baccalauréat STMG • Option Mercatique</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Première étincelle stratégique : psychologie du consommateur, cycle de vie des produits, études de marché et ciblage publicitaire.
+                  </p>
+                </div>
+                <div class="flex items-center gap-2 text-secondary font-label-hud text-label-hud uppercase">
+                  <span class="material-symbols-outlined text-[16px]">verified</span> Fondations Mercatique Validées
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CV DOWNLOAD -->
+      <section class="w-full bg-surface px-gutter py-space-xl relative">
+        <div class="max-w-5xl mx-auto bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low p-space-xl rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-xl relative overflow-hidden">
+          <div class="absolute -left-16 -top-16 w-60 h-60 bg-secondary/10 rounded-full blur-[90px] pointer-events-none"></div>
+          <div class="flex flex-col gap-space-xs z-10 max-w-xl">
+            <div class="flex items-center gap-space-xs text-secondary font-label-hud text-label-hud uppercase">
+              <span class="material-symbols-outlined text-[20px]">lock_open</span> CLASSIFIED DOSSIER READY FOR INSPECTION
+            </div>
+            <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-wide">
+              TÉLÉCHARGEZ LE DOSSIER OFFICIEL CERTIFIÉ
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Retrouvez l'intégralité du profil de Florian Zo'o au format PDF haute résolution : synthèse des compétences, chronologie des réalisations et recommandations.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-space-sm z-10 w-full sm:w-auto">
+            <a class="w-full sm:w-auto px-space-lg py-space-sm bg-secondary text-on-secondary font-headline-sm text-headline-sm uppercase rounded shadow-[0_0_20px_rgba(233,195,73,0.4)] hover:bg-secondary-fixed transition-colors flex items-center justify-center gap-2 text-center" href="mailto:zooflorian783@gmail.com?subject=Demande%20CV%20PDF%20Florian%20Zo'o" id="downloadCvBtn">
+              <span class="material-symbols-outlined text-[20px]">download</span> CV Certifié (PDF)
+            </a>
+            <a class="w-full sm:w-auto px-space-md py-space-sm bg-surface-container-high text-tertiary font-label-stat text-label-stat uppercase rounded hover:bg-tertiary hover:text-on-tertiary transition-colors flex items-center justify-center gap-2" href="productions.html">
+              <span class="material-symbols-outlined text-[18px]">folder_open</span> Le Vault Projets
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CTA FINAL -->
+      <section class="w-full bg-surface-container-lowest px-gutter py-space-2xl relative overflow-hidden text-center">
+        <div class="absolute inset-0 bg-radial from-primary-container/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-space-lg relative z-10">
+          <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container shadow-inner">
+            <span class="material-symbols-outlined text-[36px]">sports_mma</span>
+          </div>
+          <div class="flex flex-col gap-space-xs">
+            <span class="font-label-hud text-label-hud text-secondary uppercase tracking-widest">MAIN EVENT • TALENT SCOUTING</span>
+            <h2 class="font-display-hero text-headline-lg lg:text-display-hero uppercase text-on-surface tracking-tight">
+              PRÊT À ENRÔLER FLORIAN ZO'O POUR VOTRE <span class="text-primary-container">PROCHAINE MISSION</span> ?
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+              Que ce soit pour orchestrer un lancement 360°, dompter des KPIs complexes ou insuffler une vraie ferveur narrative à votre marque, l'athlète du marketing digital est prêt à monter sur le ring.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-space-md pt-space-xs">
+            <a class="px-space-xl py-space-md rounded bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider shadow-[0_0_30px_rgba(255,82,95,0.5)] hover:bg-secondary hover:text-on-secondary transition-all flex items-center gap-space-xs" href="contact.html">
+              <span class="material-symbols-outlined text-[24px]">stadium</span> Entrer dans l'Arène Contact
+            </a>
+            <a class="px-space-lg py-space-md rounded bg-surface-container text-tertiary font-label-stat text-label-stat uppercase tracking-wider hover:bg-surface-container-high transition-colors flex items-center gap-space-xs" href="skills.html">
+              <span class="material-symbols-outlined text-[20px]">analytics</span> Analyser les Stats &amp; Skills
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="w-full bg-surface-container-lowest py-space-xl">
+    <div class="w-full px-gutter flex flex-col gap-space-xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center gap-space-sm">
+            <span class="material-symbols-outlined text-secondary text-[28px]">workspace_premium</span>
+            <span class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wider">Florian Zo'o • Championship Edition</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">Étudiant stratège en Bachelor Marketing Digital à Ynov Campus. L'art de conjuguer l'énergie brute d'un Main Event, la précision d'un braquage néon et l'enchantement du storytelling.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-md">
+          <a class="px-space-md py-space-xs bg-surface-container font-label-stat text-label-stat uppercase text-tertiary hover:bg-tertiary-container hover:text-on-tertiary-container rounded transition-colors" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn Dossier</a>
+          <a class="px-space-md py-space-xs bg-surface-container font-label-stat text-label-stat uppercase text-secondary hover:bg-secondary-container hover:text-on-secondary-container rounded transition-colors" href="https://github.com" rel="noreferrer" target="_blank">GitHub Hub</a>
+          <a class="px-space-md py-space-xs bg-surface-container font-label-stat text-label-stat uppercase text-primary hover:bg-primary-container hover:text-on-primary rounded transition-colors" href="mailto:zooflorian783@gmail.com">Hotline Ring</a>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg bg-surface-container-low/40 px-space-md py-space-sm rounded">
+        <div class="font-label-hud text-label-hud text-on-surface-variant">© 2025 Florian Zo'o. Conçu pour le spectacle, optimisé pour la conversion. Tous droits réservés.</div>
+        <div class="font-label-hud text-label-hud text-secondary uppercase">Inspired by WWE Drama, GTA Neon Nights &amp; Disney Story Craft</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cvBtn = document.getElementById('downloadCvBtn');
+      if (cvBtn) {
+        cvBtn.addEventListener('click', (e) => {
+          // On laisse le mailto fonctionner, on ajoute juste un feedback visuel
+          const originalHTML = cvBtn.innerHTML;
+          cvBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span> DEMANDE ENVOYÉE';
+          setTimeout(() => {
+            cvBtn.innerHTML = originalHTML;
+          }, 2500);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
